@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <title>🧙 Poema aleatorio</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.js"></script>
+  <Link rel="Stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <header>
+    <p>
+      <a href="pagina principal.html">Bienvenide</a>
+      <a href="caleidoscopio.html">Caleidoscopio </a>
+      <a href="condiciones.html">Condiciones </a>
+      <a href="poema aleatorio.html" class="activo">Poema aleatorio </a>
+      <a href="orbit control.html">Orbit control </a>
+      <a href="entrada y boton.html">Entrada y botón </a>
+    </p>
+    <h1>Poema aleatorio</h1>
+  </header>
+<main></main>
+  <aside>
+    <button onclick="foto()"> Descargar</button>
+  </aside>
+  <script>
+    var words = ['Warrior', 'Mage', 'Hunter', 'Rogue', 'Priest', 'Paladin', 'Shaman', 'Druid', 'Warlock', 'Death Knight', 'Monk', 'Demon Hunter', 'Evoker'];
+    var wordCount = 13;
+    var hue;
+    var position;
+
+    function setup() {
+      describe('A random series of classes related to traditional RPGs archetypes scattered onto the canvas.');
+      textFont('Lifecraft');
+      createCanvas(windowWidth, windowHeight);
+      textAlign(CENTER);
+
+
+
+
+      position = floor(random(0, words.length - wordCount));
+
+      background('#4DB6AC');
+
+      for (var i = 0; i < 20; i++) {
+        textSize(random(16, 48));
+        fill('#64FFDA');
+        text(random(words), random(width), random(height));
+      }
+    }
+    function foto() {
+      saveCanvas('poema aleatorio');
+    }
+
+  </script>
+</body>
+
+</html>

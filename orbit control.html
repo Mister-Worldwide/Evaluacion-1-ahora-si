@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <title>🧙 Orbit control</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.js"></script>
+  <Link rel="Stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <header>
+    <p>
+      <a href="pagina principal.html">Bienvenide</a>
+      <a href="caleidoscopio.html">Caleidoscopio </a>
+      <a href="condiciones.html">Condiciones </a>
+      <a href="poema aleatorio.html">Poema aleatorio </a>
+      <a href="orbit control.html" class="activo">Orbit control </a>
+      <a href="entrada y boton.html">Entrada y botón </a>
+    </p>
+    <h1>Orbit control</h1>
+  </header>
+  <main></main>
+  <aside>
+    <button onclick="foto()"> Descargar</button>
+  </aside>
+  <script>
+    function setup() {
+      createCanvas(windowWidth, windowHeight, WEBGL);
+      angleMode(DEGREES);
+      strokeWeight(10);
+      noFill();
+      stroke('#64FFDA');
+      describe('Los usuarios pueden clikear y arrastrar en la pantalla para ajustar su perspectiva en un espacio tridimensional. El espacio contiene una esfera de cubos purpura oscuro en un fondo rosa claro.')
+    }
+
+    function draw() {
+      background('#4DB6AC');
+
+      orbitControl();
+
+      for (var zAngle = 0; zAngle < 180; zAngle += 30) {
+        for (var xAngle = 0; xAngle < 360; xAngle += 30) {
+          push();
+          rotateZ(zAngle);
+          rotateX(xAngle);
+
+          translate(0, 400, 0);
+          box();
+          pop();
+        }
+      }
+    }
+    function foto() {
+      saveCanvas('orbit control');
+    }
+
+  </script>
+</body>
+
+</html>

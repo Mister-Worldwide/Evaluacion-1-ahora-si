@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <title>🧙 Condiciones</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.js"></script>
+  <Link rel="Stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <header>
+    <p>
+      <a href="pagina principal.html">Bienvenide</a>
+      <a href="caleidoscopio.html">Caleidoscopio </a>
+      <a href="condiciones.html" class="activo">Condiciones </a>
+      <a href="poema aleatorio.html">Poema aleatorio </a>
+      <a href="orbit control.html">Orbit control </a>
+      <a href="entrada y boton.html">Entrada y botón </a>
+    </p>
+    <h1>Condiciones</h1>
+  </header>
+  <main></main>
+  <aside>
+    <button onclick="foto()"> Descargar</button>
+  </aside>
+  <script>
+    //variabbles de posicion
+    var circlePositionX = 200;
+    var circlePositionY = 200;
+
+    //variables de velocidad
+    var circleSpeedX = 2;
+    var circleSpeedY = 3;
+
+    //variable del radio
+    var circleRadius = 25;
+
+    //variable de la matiz
+    var circleHue = 0;
+
+    function setup() {
+      createCanvas(windowWidth, windowHeight);
+      background('#4DB6AC');
+      //Dibujar elipses a partir del radio
+      ellipseMode(RADIUS)
+
+
+      //Saturación del color 
+      colorMode(HSB);
+      //Grosor del trazo
+      strokeWeight(4);
+
+      describe('A circle starts in the center of the canvas. When the user holds the mouse down, the circle bounces around the canvas, its inside switches between black and white, and its outline fades between colors, leaving a rainbow trail.');
+    }
+
+    function draw() {
+      //Fijar color de trazo con la matiz establecida
+      stroke(circleHue, 80, 90);
+      if (circlePositionX >= 100 && circlePositionX <= 300) { fill(0); }
+      else { fill(255) }
+
+      circle(circlePositionX, circlePositionY, circleRadius);
+      if (mouseIsPressed === true) {
+        circlePositionX = circlePositionX + circleSpeedX;
+        circlePositionY = circlePositionY + circleSpeedY;
+
+        circleHue = circleHue + 1;
+      }
+      if (circleHue >= 360) { circleHue = 0; }
+      if (
+        circlePositionY < circleRadius ||
+        circlePositionY > height - circleRadius) { circleSpeedY = - circleSpeedY; }
+      if (
+        circlePositionX < circleRadius ||
+        circlePositionX > height - circleRadius) { circleSpeedX = - circleSpeedX }
+
+
+    }
+    function foto() {
+      saveCanvas('Condiciones');
+    }
+
+  </script>
+</body>
+
+</html>

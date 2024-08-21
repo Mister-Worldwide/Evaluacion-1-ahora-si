@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <title>🧙 Entrada y botón</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.js"></script>
+
+</head>
+
+<body>
+  <header>
+    <p>
+      <a href="pagina principal.html">Bienvenide</a>
+      <a href="caleidoscopio.html">Caleidoscopio </a>
+      <a href="condiciones.html">Condiciones </a>
+      <a href="poema aleatorio.html">Poema aleatorio </a>
+      <a href="orbit control.html" >Orbit control </a>
+      <a href="entrada y boton.html"></a> class="activo" Entrada y botón </a>
+    </p>
+    <h1>Entrada y boton</h1>
+  </header>
+  <script>
+    var nameInput;
+    var button;
+    var greeting;
+
+    function setup() {
+      createCanvas(1080, 720);
+      background('#4DB6AC');
+
+      greeting = createElement('h2', 'Cómo te llamas?');
+      greeting.position(20, 5);
+
+      nameInput = createInput();
+      nameInput.position(20, 65);
+
+      button = createButton('enviar');
+      button.position(nameInput.x + nameInput.width, 65);
+
+      button.mousePressed(greet);
+
+      nameInput.changed(greet);
+    }
+
+    function greet() {
+      background(255);
+      var name = nameInput.value();
+      greeting.html(`Hello, ${name}!`);
+      nameInput.value('');
+
+      textSize(100);
+      textAlign(CENTER, CENTER);
+      text(name, width / 2, height / 2);
+
+      describe(`The name ${name} in large black text on a white background.`);
+    }
+
+
+
+
+  </script>
+</body>
+
+</html>
